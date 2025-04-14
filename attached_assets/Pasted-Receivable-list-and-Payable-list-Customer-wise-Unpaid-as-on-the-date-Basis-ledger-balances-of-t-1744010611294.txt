@@ -1,0 +1,50 @@
+Receivable list and Payable list 
+Customer wise-Unpaid  as on the date 
+Basis - ledger balances of the customers 
+column heads - Company Name, Total Due, Total overdue, Last Payment, Average collection, Oldest Due, Follow up (Button to send email or message requesting for payment), Record Receipt(To add receipt)
+on clicking any customer - it Should show all the transaction where there is open balance in one page and second page payments received that is yet to be allocated to any of the invoices
+Option to view invoice wise when a customer is clicked. Futher, inside there should be an option to see all the transactions with Customer whether paid or unpaid with proper options to filter 
+Basis - Sales invoices yet to be marked as paid for only unpaid view. all the transactions in the ledger of the customer in one view
+Column heads - Company Name, Invoice Number Total Amount, Balance due,  due date, Number of days overdue, Follow up (Button to send email or message requesting for payment), Record Receipt(To add receipt)
+On clicking any Invoice - it Should show invoice Details and items i.e. transaction view with a bar on top of the entire time line and transaction flow 
+
+Vendor wise - payable list as on the date
+Basis - ledger balances of the Vendors 
+column heads - Company Name, Total Payable, Last Payment date, Oldest Due, Make payment , Record payment(To add payment)
+on clicking any customer - it Should show invoice wise due in one page and second page payments received that is yet to be allocated to any of the invoices
+Option to view invoice wise when a vendor is clicked. Futher, inside there should be an option to see all the transactions with vendor whether paid or unpaid with proper options to filter 
+Basis - Purchase invoices yet to be marked as paid for only unpaid view. all the transactions in the ledger of the customer in one view
+Column heads - Company Name, Invoice Number Total Amount, Balance payable,  due date, Number of days overdue, Follow up (Button to send email or message requesting for payment), Record Receipt(To add receipt)Make payment , Record payment(To add payment)
+On clicking any Invoice - it Should show invoice Details and items i.e. transaction view with a bar on top of the entire time line and transaction flow 
+
+Filter (ageing wise)
+To display the entire due or payable amount in number of days due per se breakup example - customer 1 0-30 days 1,00,000, 30-60 days -30000 and 90 and above 0
+Payments update
+Update payments made to vendors
+Details of payment made not through the app
+As per the Tally Import script
+Form requirement list - 
+Request for saving to tally 
+Make payments 
+List of data automatically to be obtained based on the invoice or vendor selected 
+once payment is made - Request for saving to tally 
+Open payments to be tracked for on account , advance, reference for invoice adjustment
+Send reminders 
+separate Tabs to show sync status of the payments made or recorded in the APP
+Receipts update
+Update Receipts from customer
+Details of receipts not collected through the app
+As per the Tally Import script
+Form requirement list - 
+Request for saving to tally 
+Receipts received through the APP's Payment aggregator integration 
+List of data automatically to be obtained based on the Payment aggregator details and link used 
+In some cases ask for invoice or order against which such payment is to be adjusted 
+Receipts to be kept open untill an invoice is linked or recorded as a advance or tracking id 
+once receipt details are received - Request for saving to tally 
+
+Send reminders 
+separate Tabs to show sync status of the payments made or recorded in the APP
+
+C - Option to pay by BNPL method or other methods (RTGS, NEFT, UPI and Card) on purchases
+C - Option to get invoice discounting on sales list

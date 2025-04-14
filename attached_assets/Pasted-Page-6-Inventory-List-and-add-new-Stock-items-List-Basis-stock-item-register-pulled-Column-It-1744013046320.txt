@@ -1,0 +1,65 @@
+Page 6 - Inventory
+List and add new
+Stock items 
+List
+Basis stock item register pulled 
+Column  - Item Name, QTY sold, ATY in stock, Sales by value(Period based), Inventory value, AVG sales price. AVG cost PRice, GST rate, HSN code and description
+Option to view godown wise stock
+Option to create new 
+As per the Import list 
+List of requirement - Name (M), Group Name, Description, Units(M),[ Item allocation details(enable to include)], Maintain in batches, Costing method, Market valuation method, [BOM details (Name of BOM, UNit of manufacture, BOm component - Item Name, Qty Godown, rate)], HSN/SAC number, GST rate from date, rate details, taxability type, IGST rate, CGST Rate, SGST rate, [Mrp rate. MRP date from].
+Stock category
+List
+Basis stock category register pulled 
+Column  - Category name, QTY sold, ATY in stock, Sales by value(Period based), Inventory value, AVG sales price. AVG cost PRice
+Option to create new 
+As per the Import list 
+List of requirement - Name (M) 
+
+Stock Group
+List
+Basis stock Group register pulled 
+Column  - Name, parent name
+Option to create new 
+As per the Import list 
+List of requirement - Name (M) , parent name, HSN details, GST details 
+Godown
+List
+Basis stock Godown register pulled 
+Column  - Name, parent name, Address
+Option to create new 
+As per the Import list 
+List of requirement - Name (M) , parent name, address
+
+Price lists - option to create vendor wise or separate lists  with Each item prices seperate
+Units 
+List
+Symbol, Formal name, UQC from, UQC
+Basis Units register pulled 
+Column  - Name, parent name, Address
+Option to create new 
+As per the Import list 
+List of requirement - Symbol, Formal name, uQC from, UQC
+Stock movement or conversion - later
+Job-work 
+transfer(location)
+processing 
+GDN/GRN
+
+
+Page 7 - Master
+Customer list 
+Basis the Ledger pulled filtered to voucher type Sundry Debtors
+Columns  - Customer Name, Email ID , Phone Number , Sales Manager, additional communication details, Amount due, Open orders, unused credits, GSTIN, Banking details
+Create new - as per the import xml and take in other details to be stored with us 
+Vendor list 
+Basis the Ledger pulled filtered to voucher type Sundry Debtors
+Columns  - Vendor Name, Email ID , Phone Number , Sales Manager, additional communication details, Amount Payable, Open orders, Unused credit,  GSTIN, Banking details
+Create new - as per the import xml and take in other details to be stored with us
+Profile - Company details 
+Details from the company details pulled 
+other ledger creation
+
+Page 8 - Reporting and analytics
+
+

@@ -1,0 +1,92 @@
+App Development Prompt
+Project Name: SME Transaction Automation Platform
+Objective:  Build a Tally-integrated platform to digitize end-to-end transaction  workflows (sales/purchase), inventory, and credit management for Indian  SMEs.
+1. Core Requirements
+Pages & Subpages
+Dashboard:
+Widgets: Open payments, receivables, BNPL limits, ageing analysis.
+Quick Actions: New purchase/sales, sync Tally.
+Search Page:
+Vendor/customer/product search with filters (GSTIN, status, category).
+Sales Module:
+Subpages:
+Estimates/Quotations (requests + responses).
+Sales Orders (digital/manual + acceptance workflow).
+Sales Bills (invoices, debit notes).
+Receipts (manual/digital reconciliation).
+Workflow Timeline: Estimate → Order → Delivery → Invoice → Receipt.
+Purchase Module:
+Subpages:
+Quotation Requests (sent/received).
+Purchase Orders (GRN creation, invoice matching).
+Purchase Bills (credit notes, returns).
+Payments (UPI, BNPL, reconciliation).
+Workflow Timeline: PO → GRN → Bill → Payment.
+Receivables/Payables:
+Ageing buckets (0–30d, 30–60d, etc.), follow-up actions (reminders).
+Inventory:
+Stock items (batch, godown, HSN), price lists, BOM.
+Master Data:
+Customer/vendor profiles (GSTIN, credit terms), company settings.
+Settings:
+Tally sync configurations, payment gateway setup, user roles (admin/accountant).
+2. Key Control Points (From Your PDF)
+BNPL Controls:
+Track Sales/Purchase BNPL limits.
+Invoice discounting options (early payment).
+Dynamic credit scoring based on transaction history.
+Tally Sync:
+Bidirectional sync (XML/ODBC) for transactions, ledgers, inventory.
+Conflict resolution (e.g., manual override for mismatched invoices).
+Approval Workflows:
+Order acceptance/rejection by buyers/sellers.
+Debit/credit note approvals.
+3. Technical Specifications
+Frontend:
+Framework: React.js (web) + React Native (mobile).
+UI Components:
+Interactive transaction timelines (horizontal scroll, color-coded stages).
+Tally-like grids (sortable/resizable columns, bulk actions).
+Real-time dashboards (charts for ageing, cash flow).
+Libraries: AG-Grid for tables, Recharts for visualizations.
+Backend:
+Framework: Python/Django (REST APIs).
+Database: PostgreSQL (ACID-compliant structure).
+Tally Integration:
+Desktop sync tool (Python) for XML/ODBC data push/pull.
+Handle Tally ERP 9 and Prime versions.
+Security: AES-256 encryption, OAuth2, RBAC.
+Third-Party Integrations:
+Payment Gateways: Razorpay (UPI/cards), BNPL partners (e.g., Jocata).
+GST Compliance: GST API for auto-filing GSTR-1/3B.
+4. UI/UX Guidelines
+Design Principles:
+Mirror Tally’s familiarity (terms like "vouchers," "ledgers").
+Mobile-responsive with offline support for rural SMEs.
+Regional language toggle (Hindi, Tamil, Gujarati).
+Prototype Reference:
+Use the attached PDF for exact column structures, workflows, and subpage navigation.
+5. Compliance & Reporting
+GST Compliance: Auto-populate HSN codes, validate GSTIN.
+Audit Trails: Log all edits to transactions and syncs.
+Reports:
+Cash flow statements.
+GST liability summaries.
+Profit & Loss (Tally-synced data).
+6. Deliverables & Milestones
+Phase 1 (3 Months):
+Core transaction workflows (sales/purchase).
+Tally sync tool (MVP with CSV/XML support).
+Phase 2 (3 Months):
+Inventory management + BNPL controls.
+Payment gateway integration.
+Phase 3 (2 Months):
+Advanced reporting + vendor/customer portals.
+User testing + bug fixes.
+7. Notes for Developers
+Prioritize:
+Transaction timelines and Tally sync accuracy.
+Role-based access (e.g., restrict BNPL controls to admins).
+Test With:
+Tally ERP 9 and Prime (version compatibility).
+SMEs in Surat (textiles) and Ahmedabad (chemicals).

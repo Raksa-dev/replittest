@@ -1,0 +1,49 @@
+Transaction work flow
+Quotation - Quatation received from Seller - Optional 
+Purchase Order - Purchase order made to seller- Optional
+Action - Acceptance/Rejection of Purchase order by Seller
+Tracking status of delivery
+Delivery of Goods by Seller
+Acceptance and receipt of goods - GRN Document - Optional
+Purchase bill - Invoice raised by the seller - Mandatory - Can be partial also 
+Optionally - credit note for returning the goods or discount or other adjustments may be provided
+Adjustment of the above with the bill amount
+Payment of the invoice + TDS/TCS Deduction
+Sub pages under Purchase
+Quotation request - Send a request for quotation with items required to the seller
+Basis - list of all the quotation requests prepared 
+request (form to create and send request for quotation)
+Tow tables 
+quotation request sent - Columns - Vendor name, Date, number of items, terms if any, remarks
+Quotatinons received - columns = Vendor name, Estimate number, date, Item details, qty, amount, Due date - Place order button 
+Purchase orders 
+Basis - synced through tally  + Manually add new orders and send it to seller or digitally added by ordering through search portal or converting quote 
+Columns - Vendor name, Order number, Reference, date, amount, Invoice status, Inventory Status,  Action button (Option to Generate GRN, Record Invoice, Record Payment and make payment), Expected date of delivery
+Create new PO - Vendor name, Order number, Reference, date, amount, Item details, expected date of delivery, Discount and total  - Save and send to the seller for acceptance
+Acceptance by the seller 
+Option to Generate GRN(post receipt of goods), Record Invoice(post receipt of invoice - manual update or conversion of the order in into invoice with additional details or digitally receiving it on the portal), Record Payment(Mannually) and make payment
+List of GRN
+List of GRN created on the platform 
+columns - vendor name, purchase order reference, date of receipt
+Purchase bills
+Basis - synced through tally or create new invoices(Manual update or order conversion) or digitally received from sellers (to be accepted)
+Tally sync- 1.Purchase register, 2.  Purchases recorded in Journal entries, 3 purchases recorded in Payment register.
+Columns - Date, Bill number, voucher number, reference, Vendor name, Status (open, paid, received digitally,  partially paid, paid, over due), due date, amount, balance due, Action button( Record Payment and make payment)
+Create new -  
+manual - (all the details as per the tally Import form)
+Order converted - additional data , any updates 
+digitally received - tagging the inventory and correct vendor name
+Purchase return and discount/other credits
+Basis - synced through tally or create new CN or digitally received debit note from sellers (to be accepted)
+Tally sync- 1.Credit note register, 2 Any other entries with the vendor not being payment or purchase
+Columns - Date, credit note number, reference, Vendor name, Status (open, partially adjusted, completely adjusted, refund received, cancelled), amount, balance to be adjusted
+Create new - Debit note requirements for tally import
+Payments list (Period based)
+List of payments made
+Basis - Payments report(Payments recorded in payments voucher), Journal report(payments recorded in Journal voucher) and Purchase register(Cash purchases)
+Columns - Vendor name, Amount paid, Date, Reference invoice number, reference PO number, Mode of payment, Account number, Unused amount ,Bank Ledger name, Through APP(Yes or no), Sync status
+On clicking it should open the payment details and transaction view
+Option to view customer wise (with period specified)
+
+Other 
+Update invoice status and others In bills view only option to change

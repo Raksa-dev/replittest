@@ -1,0 +1,59 @@
+ransaction work flow
+Quotation request received - Optional
+Estimates - Esitmate shared with the Buyer on request -  Optional 
+Sales Order - Order received from the buyer - Optional
+Action - Acceptance/Rejection of order
+Updating the status of packaging, 
+delivery of the goods - Shipment
+Delivery of Goods - GDN Document / DC- Optional
+Sales Invoice - Invoice raised by the seller - Mandatory - Can be partial also 
+Optionally - Debit note for returning the goods or discount or other adjustments may be provided
+Adjustment of the above with the Invoice amount
+Receipt - mandatory
+Sub pages under Sales
+Estimates/quotation  and Quotation requests received 
+ Quotation requests received
+List of quotation requests received
+Columns - Customer name, Date, Quotation req number, due data, status(Open, closed, responded, rejected)
+Clicking on the request - to estimate preparation with basic data from Quotation request
+Estimates
+Basis - list of all the Estimates shared with the customers
+columns - customer name,  Date, number of items,  amount, status (Draft, sent, order placed, cancelled, closed,  Estimate number,Action button (to convert estimate into order or Invoice), remarks
+Create or respond to an Quotation 
+Details - customer name,  Estimate number, Date, Item details,  amount, discount, terms and conditions etc,  payment terms , credit terms.
+Sales orders 
+Basis - synced through tally  + Manually add new orders and send it to buyer for acceptance or digitally added by orders received through search portal or converting estimates based on confrmation
+Columns - Customer name, Order number, Reference, date, amount,  Invoice status (Received, Sent for acceptance, Accepted, Open, Billed, Paid, Partially billed, Partially paid) Inventory Status (Packing, shipped, Delivered, cancelled, closed),  Action button (Option to Generate GDN, Record Invoice, Record Receipts and request collection), Expected date of delivery
+Two tables 
+Digitally received for acceptance - Once accepted move to the larger table
+All Orders
+Create new PO(sales order for a seller) - Customer name , Order number, Reference, date, amount, Item details, expected date of delivery, Discount and total  - Save and send to the buyer for acceptance (only if quote is not converted)
+Acceptance by the buyer  (only if this is not a quote converted order)
+Acceptance of Sales order by the buyer (if digitally received)
+Updation 
+Update packaging status
+Generate shipping documents for logistics 
+Option to Generate GDN (post Delivery of goods), Conversion of the order in into invoice with additional details and sharing it digitally, Record Receipts (Mannually) and make payment
+List of GDN
+List of GDN created on the platform 
+columns - Customer name, Sales order reference, date of delivery
+Sales bills
+Basis - synced through tally or create new invoices(Manual update or order conversion)
+Tally sync- 1.Sales register, 2.  sales recorded in Journal entries, 3. Sales recorded in receipt register
+Columns - Date, invoice number,  reference, customer name, Status (Draft, Sent, paid,   partially paid,  over due), due date, amount, balance due, Action button( Record receipt and Send reminder)
+Create new -  
+manual - (all the details as per the tally Import form)
+Order converted - additional data , any updates 
+Sales return and discount/other credits
+Basis - synced through tally or create new DN or digitally received Credit note from Buyer (to be accepted)
+Tally sync- 1. Debit note register, 2 Any other entries with the customer not being Receipt or Sale
+Columns - Date, Debit note number, reference , Customer name, Status (open, partially adjusted, completely adjusted, refund paid, cancelled), amount, balance to be adjusted
+Create new - Debit note requirements for tally import
+ Receipts list (Period based)
+List of payments made
+Basis - Payments report (Receipts recorded in payments voucher), Journal report (Receipts recorded in Journal voucher) and Sales register(Cash purchases)
+Columns - Customer name, Amount Received, Date, Reference invoice number, reference PO number, Mode of payment, Account number, Bank Ledger name, Through APP(Yes or no), Sync status
+On clicking it should open the Receipt details and transaction view
+Option to view customer wise (with period specified)
+ Other 
+Update invoice status and others in invoice or order list view only 
