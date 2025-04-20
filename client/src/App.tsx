@@ -19,13 +19,14 @@ import StockItemsList from "@/pages/inventory/stock-items/list";
 import NewStockItem from "@/pages/inventory/stock-items/new";
 import StockGroupsList from "@/pages/inventory/stock-groups/list";
 import NewStockGroup from "@/pages/inventory/stock-groups/new";
-import GodownsList from "@/pages/inventory/godowns/list"; 
+import GodownsList from "@/pages/inventory/godowns/list";
 import NewGodown from "@/pages/inventory/godowns/new";
 import UnitsList from "@/pages/inventory/units/list";
 import NewUnit from "@/pages/inventory/units/new";
 import PriceList from "@/pages/inventory/price-list";
 import MasterData from "@/pages/master-data";
 import Settings from "@/pages/settings";
+import Reports from "@/pages/reports";
 
 // Sales Sub-Pages
 import QuotationRequests from "@/pages/sales/quotation-requests";
@@ -75,9 +76,15 @@ function Router() {
 
         {/* Sales and Sub-pages */}
         <Route path="/sales">{() => <Sales />}</Route>
-        <Route path="/sales/quotation-requests">{() => <QuotationRequests />}</Route>
-        <Route path="/sales/quotation-requests/new">{() => <NewQuotationRequest />}</Route>
-        <Route path="/sales/quotation-requests/:id">{(params) => <QuotationRequestDetail id={params.id} />}</Route>
+        <Route path="/sales/quotation-requests">
+          {() => <QuotationRequests />}
+        </Route>
+        <Route path="/sales/quotation-requests/new">
+          {() => <NewQuotationRequest />}
+        </Route>
+        <Route path="/sales/quotation-requests/:id">
+          {(params) => <QuotationRequestDetail id={params.id} />}
+        </Route>
         <Route path="/sales/estimates">{() => <Estimates />}</Route>
         <Route path="/sales/estimates/new">{() => <NewEstimate />}</Route>
         <Route path="/sales/orders">{() => <Orders />}</Route>
@@ -86,7 +93,9 @@ function Router() {
         <Route path="/sales/invoices/new">{() => <NewInvoice />}</Route>
         <Route path="/sales/debit-notes/new">{() => <NewDebitNote />}</Route>
         <Route path="/sales/delivery-notes">{() => <DeliveryNotes />}</Route>
-        <Route path="/sales/delivery-notes/new">{() => <NewDeliveryNote />}</Route>
+        <Route path="/sales/delivery-notes/new">
+          {() => <NewDeliveryNote />}
+        </Route>
         <Route path="/sales/receipts">{() => <Receipts />}</Route>
         <Route path="/sales/receipts/new">{() => <NewReceipt />}</Route>
         <Route path="/sales/returns">{() => <Returns />}</Route>
@@ -96,15 +105,20 @@ function Router() {
         <Route path="/purchases/payments">{() => <Payments />}</Route>
         <Route path="/purchases/payments/new">{() => <NewPayment />}</Route>
         <Route path="/purchases/returns">{() => <PurchaseReturns />}</Route>
-        <Route path="/purchases/returns/new">{() => <NewPurchaseReturn />}</Route>
+        <Route path="/purchases/returns/new">
+          {() => <NewPurchaseReturn />}
+        </Route>
         <Route path="/master-data/customers/new">{() => <NewCustomer />}</Route>
         <Route path="/master-data/vendors/new">{() => <NewVendor />}</Route>
 
-
         {/* Purchases and Sub-pages */}
         <Route path="/purchases">{() => <Purchases />}</Route>
-        <Route path="/purchases/quotation-requests">{() => <PurchaseQuotationRequests />}</Route>
-        <Route path="/purchases/quotation-requests/new">{() => <NewPurchaseQuotationRequest />}</Route>
+        <Route path="/purchases/quotation-requests">
+          {() => <PurchaseQuotationRequests />}
+        </Route>
+        <Route path="/purchases/quotation-requests/new">
+          {() => <NewPurchaseQuotationRequest />}
+        </Route>
         <Route path="/purchases/bills">{() => <PurchaseBills />}</Route>
         <Route path="/purchases/orders/new">{() => <NewPurchaseOrder />}</Route>
         <Route path="/purchases/bills/new">{() => <NewBill />}</Route>
@@ -118,8 +132,12 @@ function Router() {
         <Route path="/finance">{() => <Finance />}</Route>
 
         {/* Receivables Routes */}
-        <Route path="/finance/receivables/invoices">{() => <ReceivablesInvoices />}</Route>
-        <Route path="/finance/receivables/customers">{() => <Customers />}</Route>
+        <Route path="/finance/receivables/invoices">
+          {() => <ReceivablesInvoices />}
+        </Route>
+        <Route path="/finance/receivables/customers">
+          {() => <Customers />}
+        </Route>
         <Route path="/finance/receivables/customers/:id">
           {(params) => <CustomerDetail id={params.id} />}
         </Route>
@@ -134,9 +152,15 @@ function Router() {
         {/* Inventory Module */}
         <Route path="/inventory">{() => <Inventory />}</Route>
         <Route path="/inventory/stock-items">{() => <StockItemsList />}</Route>
-        <Route path="/inventory/stock-items/new">{() => <NewStockItem />}</Route>
-        <Route path="/inventory/stock-groups">{() => <StockGroupsList />}</Route>
-        <Route path="/inventory/stock-groups/new">{() => <NewStockGroup />}</Route>
+        <Route path="/inventory/stock-items/new">
+          {() => <NewStockItem />}
+        </Route>
+        <Route path="/inventory/stock-groups">
+          {() => <StockGroupsList />}
+        </Route>
+        <Route path="/inventory/stock-groups/new">
+          {() => <NewStockGroup />}
+        </Route>
         <Route path="/inventory/godowns">{() => <GodownsList />}</Route>
         <Route path="/inventory/godowns/new">{() => <NewGodown />}</Route>
         <Route path="/inventory/units">{() => <UnitsList />}</Route>
