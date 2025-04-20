@@ -1,49 +1,70 @@
 
+import * as React from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "./button";
-import { Plus } from "lucide-react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "./dropdown-menu";
-import { useLocation } from "wouter";
 
-export function FloatingActionButton() {
-  const [_, setLocation] = useLocation();
+interface Action {
+  label: string;
+  icon: React.ReactNode;
+  onClick: () => void;
+}
+
+interface FloatingActionButtonProps {
+  actions: Action[];
+  icon: React.ReactNode;
+}
+
+export function FloatingActionButton({ actions, icon }: FloatingActionButtonProps) {
+  const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button size="icon" className="h-14 w-14 rounded-full shadow-lg">
-            <Plus className="h-6 w-6" />
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="w-48">
-          <DropdownMenuItem onClick={() => setLocation("/sales/invoices/new")}>
-            New Invoice
-          </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => setLocation("/sales/orders/new")}>
-            New Order
-          </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => setLocation("/sales/estimates/new")}>
-            New Estimate
-          </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => setLocation("/sales/quotation-requests/new")}>
-            New Quotation
-          </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => setLocation("/sales/delivery-notes/new")}>
-            New Delivery Note
-          </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => setLocation("/sales/receipts/new")}>
-            New Receipt
-          </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => setLocation("/sales/returns/new")}>
-            New Return
-          </DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
+    <div className="fixed bottom-4 right-4 z-50">
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            className="mb-4 space-y-2"
+          >
+            {actions.map((action, index) => (
+              <motion.div
+                key={action.label}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  className="w-full flex items-center gap-2 shadow-lg"
+                  onClick={() => {
+                    setIsOpen(false);
+                    action.onClick();
+                  }}
+                >
+                  {action.icon}
+                  <span>{action.label}</span>
+                </Button>
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+      
+      <Button
+        size="lg"
+        className="rounded-full w-14 h-14 shadow-lg"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <motion.div
+          animate={{ rotate: isOpen ? 45 : 0 }}
+          transition={{ duration: 0.2 }}
+        >
+          {icon}
+        </motion.div>
+      </Button>
     </div>
   );
 }
