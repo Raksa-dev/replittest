@@ -10,6 +10,7 @@ import {
 } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
+import { FloatingActionButton } from "@/components/ui/floating-action-button";
 import { Transaction } from '@shared/schema';
 import { 
   formatCurrency, 
@@ -24,7 +25,7 @@ const Sales = () => {
   const [activeTab, setActiveTab] = useState('all');
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  
+
   // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -32,13 +33,13 @@ const Sales = () => {
         setDropdownOpen(false);
       }
     }
-    
+
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
-  
+
   // Fetch sales transactions of all types for the overview
   const { data: allSalesTransactions, isLoading: transactionsLoading } = useQuery<Transaction[]>({
     queryKey: ['/api/transactions', { 
@@ -55,7 +56,7 @@ const Sales = () => {
     }],
     enabled: activeTab === 'all',
   });
-  
+
   // Transform data into grouped categories
   const groupedTransactions = {
     invoices: allSalesTransactions?.filter(t => t.transactionType === 'sales_invoice') || [],
@@ -77,7 +78,7 @@ const Sales = () => {
       </span>
     );
   };
-  
+
   // Transaction card for dashboard view
   const TransactionCard = ({
     title,
@@ -172,10 +173,10 @@ const Sales = () => {
           <h1 className="text-2xl font-semibold text-neutral-800">Sales</h1>
           <p className="text-sm text-neutral-500">Manage your sales transactions</p>
         </div>
-        
+
         <div className="flex space-x-2">
           <Button variant="outline">Import from Tally</Button>
-          
+
           {/* Dropdown Component */}
           <div className="relative" ref={dropdownRef}>
             <Button onClick={() => setDropdownOpen(!dropdownOpen)}>
@@ -184,7 +185,7 @@ const Sales = () => {
               </svg>
               New Sale
             </Button>
-            
+
             {/* Dropdown menu */}
             {dropdownOpen && (
               <div className="absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50">
@@ -235,7 +236,7 @@ const Sales = () => {
           </div>
         </div>
       </div>
-      
+
       <Card className="mb-6">
         <CardHeader>
           <CardTitle>Sales Overview</CardTitle>
@@ -249,7 +250,7 @@ const Sales = () => {
               <TabsTrigger value="orders">Orders & Delivery</TabsTrigger>
               <TabsTrigger value="invoices">Invoices & Receipts</TabsTrigger>
             </TabsList>
-            
+
             <TabsContent value="all">
               {transactionsLoading ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -288,42 +289,42 @@ const Sales = () => {
                     transactions={groupedTransactions.quotationRequests}
                     route="/sales/quotation-requests"
                   />
-                  
+
                   <TransactionCard
                     title="Estimates & Quotations"
                     icon={<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>}
                     transactions={[...groupedTransactions.estimates, ...groupedTransactions.quotations]}
                     route="/sales/estimates"
                   />
-                  
+
                   <TransactionCard
                     title="Sales Orders"
                     icon={<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" /></svg>}
                     transactions={groupedTransactions.orders}
                     route="/sales/orders"
                   />
-                  
+
                   <TransactionCard
                     title="Delivery Notes"
                     icon={<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" /></svg>}
                     transactions={groupedTransactions.deliveryNotes}
                     route="/sales/delivery-notes"
                   />
-                  
+
                   <TransactionCard
                     title="Sales Invoices"
                     icon={<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" /></svg>}
                     transactions={groupedTransactions.invoices}
                     route="/sales/invoices"
                   />
-                  
+
                   <TransactionCard
                     title="Debit Notes"
                     icon={<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2zM10 8.5a.5.5 0 11-1 0 .5.5 0 011 0zm5 5a.5.5 0 11-1 0 .5.5 0 011 0z" /></svg>}
                     transactions={groupedTransactions.debitNotes}
                     route="/sales/debit-notes"
                   />
-                  
+
                   <TransactionCard
                     title="Receipts"
                     icon={<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" /></svg>}
@@ -333,7 +334,7 @@ const Sales = () => {
                 </div>
               )}
             </TabsContent>
-            
+
             <TabsContent value="quotations-requests">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Card>
@@ -347,7 +348,7 @@ const Sales = () => {
                     </Link>
                   </CardContent>
                 </Card>
-                
+
                 <Card>
                   <CardHeader>
                     <CardTitle className="text-lg">Estimates & Quotations</CardTitle>
@@ -361,7 +362,7 @@ const Sales = () => {
                 </Card>
               </div>
             </TabsContent>
-            
+
             <TabsContent value="orders">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Card>
@@ -375,7 +376,7 @@ const Sales = () => {
                     </Link>
                   </CardContent>
                 </Card>
-                
+
                 <Card>
                   <CardHeader>
                     <CardTitle className="text-lg">Delivery Notes</CardTitle>
@@ -389,7 +390,7 @@ const Sales = () => {
                 </Card>
               </div>
             </TabsContent>
-            
+
             <TabsContent value="invoices">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Card>
@@ -403,7 +404,7 @@ const Sales = () => {
                     </Link>
                   </CardContent>
                 </Card>
-                
+
                 <Card>
                   <CardHeader>
                     <CardTitle className="text-lg">Debit Notes</CardTitle>
@@ -415,7 +416,7 @@ const Sales = () => {
                     </Link>
                   </CardContent>
                 </Card>
-                
+
                 <Card className="md:col-span-2">
                   <CardHeader>
                     <CardTitle className="text-lg">Receipts</CardTitle>
@@ -432,7 +433,7 @@ const Sales = () => {
           </Tabs>
         </CardContent>
       </Card>
-      
+
       {/* Recent Activities Section */}
       <Card>
         <CardHeader>
@@ -506,6 +507,7 @@ const Sales = () => {
           )}
         </CardContent>
       </Card>
+      <FloatingActionButton onClick={() => console.log('Create new item')}/>
     </div>
   );
 };
