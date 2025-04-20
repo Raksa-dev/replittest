@@ -234,6 +234,19 @@ const Sidebar = () => {
           </div>
           
           <div>
+            <Link href="/reports">
+              <div className={cn("flex items-center px-3 py-2 mt-1 rounded-md font-medium cursor-pointer",
+                isActiveLink("/reports") || location.startsWith("/reports/")
+                  ? "bg-primary-50 text-primary-600" 
+                  : "text-neutral-700 hover:bg-neutral-100"
+              )}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zm6-4a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zm6-3a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
+                </svg>
+                Reports
+              </div>
+            </Link>
+
             <Link href="/finance">
               <div className={cn("flex items-center px-3 py-2 mt-1 rounded-md font-medium cursor-pointer",
                 isActiveLink("/finance") || location.startsWith("/finance/")

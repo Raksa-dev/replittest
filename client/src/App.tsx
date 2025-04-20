@@ -111,6 +111,9 @@ function Router() {
         <Route path="/purchases/payments/new">{() => <NewPayment />}</Route>
         <Route path="/purchases/returns/new">{() => <NewCreditNote />}</Route>
 
+        {/* Reports Module */}
+        <Route path="/reports">{() => <Reports />}</Route>
+
         {/* Finance Module */}
         <Route path="/finance">{() => <Finance />}</Route>
 
