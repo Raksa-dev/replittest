@@ -22,6 +22,7 @@ export const db = drizzle(client);
 // Export a function to check the database connection
 export async function checkDatabaseConnection() {
   try {
+    console.log("hhelo", connectionString);
     // Simple query to check if the database is accessible
     await client`SELECT NOW()`;
     log(`PostgreSQL database connection successful.`, "express");
